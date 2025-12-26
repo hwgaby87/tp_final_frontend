@@ -1,9 +1,10 @@
-
-
+/* Contenedor principal que divide Sidebar de Chat */
 /* Contenedor principal que divide Sidebar de Chat */
 .app-container {
     display: flex;
     height: 100vh;
+    /* Fallback */
+    height: 100dvh;
     width: 100vw;
     overflow: hidden;
     /* Evita scrolls extraños fuera de los contenedores */
@@ -16,7 +17,7 @@
     /* Toma todo el ancho restante al lado del sidebar */
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     background-color: var(--wa-bg-chat);
     position: relative;
     background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
