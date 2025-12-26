@@ -23,7 +23,9 @@
     color: var(--wa-text-primary);
     resize: none;
     /* Evita que el usuario estire el cuadro manualmente */
-    height: 20px;
+    min-height: 20px;
+    max-height: 120px;
+    overflow-y: auto;
     /* Altura para una sola línea */
     line-height: 20px;
     outline: none;

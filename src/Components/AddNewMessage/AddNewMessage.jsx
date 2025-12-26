@@ -12,7 +12,16 @@ export default function AddNewMessage() {
         if (message.trim() !== "") {
             addNewMessage(message)
             event.target.reset()
+            // Reset textarea height
+            const textarea = event.target.querySelector('textarea');
+            textarea.style.height = 'auto';
         }
+    }
+
+    const handleInput = (e) => {
+        const target = e.target;
+        target.style.height = 'auto';
+        target.style.height = `${target.scrollHeight}px`;
     }
 
     return (
@@ -23,6 +32,8 @@ export default function AddNewMessage() {
                 name='mensaje'
                 placeholder="Escribe un mensaje aquí"
                 required
+                onInput={handleInput}
+                rows={1}
             ></textarea>
             <button type="submit">Enviar</button>
         </form>
