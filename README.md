@@ -13,6 +13,7 @@ Se han empleado las siguientes tecnologías y librerías para la construcción d
 - **React DOM**: Para el renderizado de componentes en el DOM.
 - **React Router**: Para el manejo del enrutamiento y la navegación entre vistas.
 - **Vite**: Utilizado como entorno de desarrollo y empaquetador, proporcionando una experiencia de desarrollo rápida y eficiente.
+- **CSS3**: Para los estilos personalizados y el diseño responsivo de la aplicación.
 
 ## Desafíos en el Desarrollo
 Durante el proceso de construcción de la aplicación, el desarrollador experimentó dificultades notables al momento de implementar los estilos personalizados con CSS. Asimismo, lograr un diseño completamente responsivo ("responsive") que se adaptara correctamente a diferentes resoluciones de pantalla representó un reto significativo. A pesar de estas complicaciones iniciales en la maquetación y adaptabilidad, se logró integrar la lógica funcional requerida para la operación de la aplicación.
