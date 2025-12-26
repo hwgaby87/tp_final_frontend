@@ -1,0 +1,63 @@
+.add-message-form {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    gap: 12px;
+    background-color: var(--wa-bg-main);
+    /* Color de fondo gris claro de la barra */
+    min-height: 62px;
+    box-sizing: border-box;
+    border-top: 1px solid var(--wa-border);
+}
+
+/* Contenedor del campo de texto */
+.add-message-form textarea {
+    flex: 1;
+    /* Ocupa todo el espacio disponible entre los iconos/botones */
+    background-color: var(--wa-bg-sidebar);
+    border: none;
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-size: 15px;
+    font-family: inherit;
+    color: var(--wa-text-primary);
+    resize: none;
+    /* Evita que el usuario estire el cuadro manualmente */
+    height: 20px;
+    /* Altura para una sola línea */
+    line-height: 20px;
+    outline: none;
+    /* Quita el borde azul al hacer click */
+    box-shadow: 0 1px 1px var(--wa-bubble-shadow)
+}
+
+.add-message-form textarea::placeholder {
+    color: var(--wa-text-placeholder);
+    font-size: 15px;
+}
+
+/* Botón de enviar */
+.add-message-form button {
+    background: none;
+    border: none;
+    color: var(--wa-green);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-message-form button:hover {
+    color: var(--wa-green-light);
+    /* Un verde un poco más oscuro al pasar el mouse */
+}
+
+/* Ajuste para cuando el botón está deshabilitado */
+.add-message-form button:disabled {
+    color: var(--wa-text-placeholder);
+    cursor: not-allowed;
+}

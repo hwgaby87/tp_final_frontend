@@ -1,0 +1,130 @@
+/* Contenedor principal del chat */
+.message-list-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background-color: var(--wa-bg-chat);
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+    scrollbar-gutter: stable;
+    /* Evita que el contenido salte cuando aparece el scroll */
+}
+
+@media (max-width: 480px) {
+    .message-list-container {
+        padding: 10px 10px;
+    }
+}
+
+
+/* Estilo base de la burbuja */
+.message-bubble {
+    max-width: 65%;
+    padding: 6px 7px 8px 9px;
+    font-size: 14.2px;
+    border-radius: 7.5px;
+    box-shadow: 0 1px 0.5px var(--wa-bubble-shadow);
+    position: relative;
+    word-wrap: break-word;
+    min-width: 85px;
+    margin-bottom: 2px;
+}
+
+/* Burbuja enviada por mí */
+.message-me {
+    align-self: flex-end;
+    background-color: var(--wa-bubble-me);
+    border-top-right-radius: 0;
+}
+
+/* Burbuja enviada por el contacto */
+.message-other {
+    align-self: flex-start;
+    background-color: var(--wa-bg-sidebar);
+    border-top-left-radius: 0;
+}
+
+/* Cuerpo del texto */
+.message-text {
+    color: var(--wa-text-primary);
+    line-height: 19px;
+    display: block;
+    white-space: pre-wrap;
+    /* Mantiene los saltos de línea del usuario */
+}
+
+/* Contenedor de Hora y Checks */
+.message-meta {
+    float: right;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 4px;
+    position: relative;
+    bottom: -2px;
+    gap: 3px;
+    user-select: none;
+}
+
+/* Estilo de la hora */
+.message-time {
+    font-size: 11px;
+    color: var(--wa-text-secondary)1;
+    white-space: nowrap;
+    text-transform: uppercase;
+    /* Generalmente AM/PM en mayúsculas */
+}
+
+/* Iconos de Check */
+.message-status {
+    font-size: 15px;
+    line-height: 1;
+    color: var(--wa-text-placeholder);
+    font-weight: normal;
+}
+
+.message-status.status-seen {
+    color: var(--wa-blue-check) !important;
+}
+
+/* Limpieza de floats */
+.message-bubble::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Picos de las burbujas de chat */
+.message-me::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -8px;
+    width: 8px;
+    height: 13px;
+    background-color: var(--wa-bubble-me);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.message-other::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -8px;
+    width: 8px;
+    height: 13px;
+    background-color: var(--wa-bg-sidebar);
+    clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+
+/* Scrollbar */
+.message-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-list-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+}

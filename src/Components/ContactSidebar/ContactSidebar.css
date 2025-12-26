@@ -1,0 +1,281 @@
+.sidebar-container {
+    width: 30%;
+    min-width: 350px;
+    max-width: 450px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--wa-bg-sidebar);
+    border-right: 1px solid var(--wa-border);
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .sidebar-container {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+}
+
+.contacts-scroll-area {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* --- Header y Título --- */
+.sidebar-header {
+    height: 60px;
+    background-color: var(--wa-bg-main);
+    padding: 0 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-profile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-main-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--wa-text-primary);
+    margin: 0;
+}
+
+.user-profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* --- Barra de Acciones --- */
+.sidebar-action-bar {
+    display: flex;
+    gap: 10px;
+    padding: 10px 16px;
+    background-color: var(--wa-bg-sidebar);
+    border-bottom: 1px solid var(--wa-bg-main);
+}
+
+.mode-btn,
+.add-contact-btn {
+    flex: 1;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--wa-green);
+    color: var(--wa-bg-sidebar);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* --- Buscador --- */
+.search-section {
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-input-wrapper {
+    flex: 1;
+    background-color: var(--wa-bg-main);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+/* --- Ítems de Contacto y Barra Verde --- */
+.contact-link {
+    text-decoration: none !important;
+    color: inherit;
+    display: block;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: 72px;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--wa-bg-sidebar);
+    transition: background 0.2s;
+}
+
+/* BARRA VERDE LATERAL */
+.contact-item.selected::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: var(--wa-green);
+    z-index: 10;
+}
+
+.contact-item.selected {
+    background-color: var(--wa-bg-main);
+}
+
+.contact-item:hover {
+    background-color: var(--wa-border-lighter);
+}
+
+/* --- Modal Formulario --- */
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Cambia var(--wa-input-bg) por un color con transparencia */
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease-out;
+    /* Hace que el fondo se vea como un cristal esmerilado */
+    backdrop-filter: blur(2px);
+}
+
+.contact-form {
+    background-color: var(--wa-bg-sidebar);
+    width: 90%;
+    max-width: 360px;
+    padding: 25px;
+    border-radius: 3px;
+    box-shadow: 0 17px 50px 0 var(--wa-bubble-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-form h3 {
+    color: var(--wa-green-light);
+    font-size: 19px;
+    margin: 0;
+}
+
+.contact-form input {
+    border: none;
+    border-bottom: 2px solid var(--wa-green);
+    padding: 10px 0;
+    font-size: 17px;
+    outline: none;
+    /* Asegura visibilidad */
+    background-color: transparent;
+    color: var(--wa-text-primary);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btn-cancel {
+    color: var(--wa-green);
+    background: none;
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-save {
+    background-color: var(--wa-green);
+    color: var(--wa-bg-sidebar);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Scrollbar --- */
+.contacts-scroll-area::-webkit-scrollbar {
+    width: 6px;
+}
+
+.contacts-scroll-area::-webkit-scrollbar-thumb {
+    background-color: var(--wa-bubble-shadow);
+}
+
+.search-input-wrapper {
+    flex: 1;
+    background-color: var(--wa-bg-main);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    transition: all 0.3s ease;
+    /* Suaviza la transición del color */
+    border: 1px solid transparent;
+}
+
+/* Efecto cuando el input recibe focus */
+.search-input-wrapper:focus-within {
+    background-color: var(--wa-bg-sidebar);
+    border-color: var(--wa-green);
+    box-shadow: 0 0 5px var(--wa-green);
+}
+
+.search-icon-span {
+    color: var(--wa-icon);
+    transition: color 0.3s;
+}
+
+/* El icono cambia de color al hacer focus */
+.search-input-wrapper:focus-within .search-icon-span {
+    color: var(--wa-green);
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: var(--wa-text-primary);
+}
+
+/* Estilo para el mensaje de 'No resultados' en la lista */
+.contact-list-status {
+    padding: 20px;
+    text-align: center;
+    color: var(--wa-text-secondary);
+    font-size: 14px;
+}

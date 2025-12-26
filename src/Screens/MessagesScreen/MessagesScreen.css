@@ -1,0 +1,122 @@
+
+
+/* Contenedor principal que divide Sidebar de Chat */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* Evita scrolls extraños fuera de los contenedores */
+    background-color: var(--wa-bg-main);
+}
+
+/* Área de Chat (Derecha)*/
+.chat-area {
+    flex: 1;
+    /* Toma todo el ancho restante al lado del sidebar */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: var(--wa-bg-chat);
+    position: relative;
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    background-repeat: repeat;
+    background-blend-mode: overlay;
+}
+
+/* Cabecera del Chat */
+.chat-header {
+    height: 60px;
+    background-color: var(--wa-bg-main);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--wa-border);
+    flex-shrink: 0;
+    /* Asegura que la cabecera no se achique */
+    z-index: 10;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--wa-text-primary);
+}
+
+.contact-avatar-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Contenedor de Carga */
+.loading {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: var(--wa-text-secondary);
+}
+
+/* Contenedor inferior para el Input */
+.input-container {
+    width: 100%;
+    background-color: var(--wa-bg-main);
+    flex-shrink: 0;
+    /* Obliga al input a mantener su tamaño al fondo */
+    border-top: 1px solid var(--wa-border);
+}
+
+/* Ajuste para el Scroll de Mensajes */
+.message-list-container {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Oculta el botón regresar por defecto (Desktop) */
+.back-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--wa-icon);
+    font-size: 20px;
+    padding: 8px;
+    margin-right: 5px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+@media (max-width: 900px) {
+
+    /* Oculta la barra lateral en la pantalla de mensajes */
+    .messages-page .sidebar-container {
+        display: none;
+    }
+
+    /* Área de chat con ancho completo */
+    .chat-area {
+        width: 100%;
+        flex: auto;
+    }
+
+    /* Muestra el botón regresar (Mobile) */
+    .back-btn {
+        display: flex;
+    }
+
+    .chat-header {
+        padding-left: 8px;
+    }
+}
